@@ -1,0 +1,254 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://fonts/Pixeled.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/mascot/auto.png" type="Texture" id=3]
+[ext_resource path="res://assets/ss.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/cursor.png" type="Texture" id=5]
+[ext_resource path="res://scripts/Cursor.gd" type="Script" id=6]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.054902, 0.247059, 0.0901961, 0.901961 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 1, 1, 1, 0.588235 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 0.588235 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 1, 1, 0.392157 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 0.25098 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 53, 26 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 53, 0, 53, 26 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 106, 0, 53, 26 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 159, 0, 53, 26 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 212, 0, 53, 26 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="DynamicFont" id=16]
+size = 12
+font_data = ExtResource( 1 )
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SS" type="TextureRect" parent="Panel"]
+margin_left = -577.0
+margin_top = -332.0
+margin_right = 610.0
+margin_bottom = 326.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SSLayer" type="Panel" parent="Panel"]
+margin_left = -572.196
+margin_top = -356.264
+margin_right = 606.803
+margin_bottom = 330.737
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 589.499, 343.5 )
+theme = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatusLabel" type="Label" parent="Panel"]
+margin_left = -255.321
+margin_top = 188.414
+margin_right = 292.679
+margin_bottom = 223.414
+rect_pivot_offset = Vector2( 270.293, 5.99451 )
+custom_fonts/font = SubResource( 3 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogoText" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -207.384
+margin_top = -158.612
+margin_right = 216.616
+margin_bottom = -46.6121
+rect_pivot_offset = Vector2( 186.653, 64.143 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Vegetables"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VersionLabel" type="Label" parent="Panel"]
+margin_left = -77.2291
+margin_top = -46.6121
+margin_right = 101.771
+margin_bottom = -0.612137
+rect_pivot_offset = Vector2( 186.653, 64.143 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "version"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.043
+margin_top = 103.134
+margin_right = 146.957
+margin_bottom = 155.134
+rect_pivot_offset = Vector2( 120.228, 27.6324 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 0.823529 )
+custom_colors/font_color = Color( 0, 0, 0, 0.823529 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 0.823529 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 0.823529 )
+text = "JOIN TO BATTLE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameInput" type="LineEdit" parent="Panel"]
+margin_left = -142.785
+margin_top = 24.6263
+margin_right = 178.215
+margin_bottom = 89.6263
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 163.713, 34.2238 )
+custom_styles/read_only = SubResource( 6 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/cursor_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 0.823529 )
+text = "Player"
+align = 1
+max_length = 15
+placeholder_text = "Your nickname.."
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mascot" type="Control" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 52.1355
+margin_top = 87.4532
+margin_right = 52.1355
+margin_bottom = 87.4532
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Panel/Mascot"]
+position = Vector2( -5.04535, -299.359 )
+scale = Vector2( 3.68, 3.68 )
+frames = SubResource( 15 )
+playing = true
+
+[node name="Links" type="Control" parent="Panel"]
+margin_left = -19.478
+margin_top = 253.281
+margin_right = -19.478
+margin_bottom = 253.281
+rect_pivot_offset = Vector2( 39.1136, 22.2053 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiscordLink" type="LinkButton" parent="Panel/Links"]
+margin_top = 1.18921
+margin_right = 77.0
+margin_bottom = 36.1892
+rect_pivot_offset = Vector2( 38.5, 17.5 )
+custom_fonts/font = SubResource( 16 )
+text = "discord"
+underline = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cursor" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+[connection signal="pressed" from="Panel/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Panel/Links/DiscordLink" to="." method="_on_DiscordLink_pressed"]

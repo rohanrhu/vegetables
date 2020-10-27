@@ -1,0 +1,159 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/sprites/mascot/auto.png" type="Texture" id=1]
+[ext_resource path="res://fonts/Pixeled.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/GameMenu.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=181]
+bg_color = Color( 0.309804, 0.337255, 0.427451, 0.784314 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 0.588235 )
+
+[sub_resource type="StyleBoxFlat" id=180]
+bg_color = Color( 1, 1, 1, 0.588235 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 0.588235 )
+
+[sub_resource type="StyleBoxFlat" id=179]
+bg_color = Color( 1, 1, 1, 0.392157 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 0.25098 )
+
+[sub_resource type="DynamicFont" id=169]
+size = 12
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=170]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=171]
+size = 10
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=172]
+default_font = SubResource( 171 )
+
+[sub_resource type="AtlasTexture" id=173]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 53, 26 )
+
+[sub_resource type="AtlasTexture" id=174]
+atlas = ExtResource( 1 )
+region = Rect2( 53, 0, 53, 26 )
+
+[sub_resource type="AtlasTexture" id=175]
+atlas = ExtResource( 1 )
+region = Rect2( 106, 0, 53, 26 )
+
+[sub_resource type="AtlasTexture" id=176]
+atlas = ExtResource( 1 )
+region = Rect2( 159, 0, 53, 26 )
+
+[sub_resource type="AtlasTexture" id=177]
+atlas = ExtResource( 1 )
+region = Rect2( 212, 0, 53, 26 )
+
+[sub_resource type="SpriteFrames" id=178]
+animations = [ {
+"frames": [ SubResource( 173 ), SubResource( 174 ), SubResource( 175 ), SubResource( 176 ), SubResource( 177 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[node name="GameMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 344.811
+margin_top = 89.0
+margin_right = 719.811
+margin_bottom = 495.0
+custom_styles/panel = SubResource( 181 )
+
+[node name="CancelButton" type="Button" parent="Panel"]
+margin_left = 67.2729
+margin_top = 233.799
+margin_right = 307.273
+margin_bottom = 275.799
+custom_styles/hover = SubResource( 180 )
+custom_styles/pressed = SubResource( 179 )
+custom_styles/focus = SubResource( 180 )
+custom_styles/disabled = SubResource( 179 )
+custom_styles/normal = SubResource( 179 )
+custom_fonts/font = SubResource( 169 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 0.823529 )
+custom_colors/font_color = Color( 0, 0, 0, 0.823529 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 0.823529 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 0.823529 )
+text = "RETURN TO GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuButton" type="Button" parent="Panel"]
+margin_left = 67.2729
+margin_top = 298.548
+margin_right = 307.273
+margin_bottom = 340.548
+custom_styles/hover = SubResource( 180 )
+custom_styles/pressed = SubResource( 179 )
+custom_styles/focus = SubResource( 179 )
+custom_styles/disabled = SubResource( 179 )
+custom_styles/normal = SubResource( 179 )
+custom_fonts/font = SubResource( 169 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 0.823529 )
+custom_colors/font_color = Color( 0, 0, 0, 0.823529 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 0.823529 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 0.823529 )
+text = "MAIN MENU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 114.784
+margin_top = 110.94
+margin_right = 264.784
+margin_bottom = 156.94
+custom_fonts/font = SubResource( 170 )
+text = "Vegetables"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VersionLabel" type="Label" parent="Panel"]
+margin_left = 131.08
+margin_top = 159.94
+margin_right = 235.08
+margin_bottom = 187.94
+theme = SubResource( 172 )
+text = "version"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Panel"]
+position = Vector2( 204.83, 68.9429 )
+scale = Vector2( 1.95187, 1.95187 )
+frames = SubResource( 178 )
+frame = 2
+playing = true
+[connection signal="pressed" from="Panel/CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="pressed" from="Panel/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

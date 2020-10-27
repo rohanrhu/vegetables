@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/CameraContainer.gd" type="Script" id=1]
+
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.0
+
+[sub_resource type="VisualShaderNodeColorConstant" id=4]
+constant = Color( 1, 0, 0, 1 )
+
+[sub_resource type="VisualShader" id=5]
+code = "shader_type canvas_item;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:2
+	vec3 n_out2p0 = vec3(1.000000, 0.000000, 0.000000);
+	float n_out2p1 = 1.000000;
+
+// Output:0
+	COLOR.rgb = n_out2p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+custom_defines = ""
+graph_offset = Vector2( -83.4827, 14 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 864, 36 )
+nodes/fragment/2/node = SubResource( 4 )
+nodes/fragment/2/position = Vector2( 414, 54 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+
+[node name="CameraContainer" type="RigidBody2D"]
+position = Vector2( 285.005, -118.954 )
+z_index = 4096
+collision_layer = 2
+collision_mask = 0
+mode = 2
+physics_material_override = SubResource( 3 )
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource( 6 )
+position = Vector2( 23.4971, 14.2885 )
+polygon = PoolVector2Array( -83.2748, -47.3358, 36.7252, -47.3358, 36.7252, 16.6642, 28.7252, 16.6642, 28.7252, -39.3358, -75.2748, -39.3358, -75.2748, 8.66418, 28.5607, 8.66418, 28.5607, 16.6642, -83.2748, 16.6642 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -5.57791, -12.944 )
+scale = Vector2( 1.2049, 1.24157 )
+polygon = PoolVector2Array( -44.9828, -16.1918, 54.6107, -16.1918, 54.6107, 35.3557, 47.9711, 35.3557, 47.9711, -9.7484, -38.3433, -9.7484, -38.3433, 28.9122, 47.9242, 28.9122, 47.9018, 35.3557, -44.9828, 35.3557 )
