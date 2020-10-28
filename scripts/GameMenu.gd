@@ -6,7 +6,7 @@
 # Github: https://github.com/rohanrhu/vegetables
 #
 # Copyright (C) 2020, Oğuzhan Eroğlu <rohanrhu2@gmail.com> (https://oguzhaneroglu.com)
-# Lİcensed under GNU/GPLv3
+# Licensed under GNU/GPLv3
 #
 
 extends Control
