@@ -19,13 +19,13 @@ const Bullet = preload("res://scripts/Bullet.gd")
 const VERSION = [1, 1, ""]
 const VERSION_STRING = "v1.1"
 
-const SERVER_ADDRESS = 'shooter2d-gs.oguzhaneroglu.com'
+const SERVER_ADDRESS = 'SERVER_ADDRESS'
 const SERVER_PORT = 2095
 const MAX_PLAYERS = 50
 
-const SSL_KEY_PATH = "res://ssl/shooter2d-gs.oguzhaneroglu.com/shooter2d-gs.oguzhaneroglu.com.key"
-const SSL_CER_PATH = "res://ssl/shooter2d-gs.oguzhaneroglu.com/shooter2d-gs.oguzhaneroglu.com.cer"
-const SSL_FULLCHAIN_PATH = "res://ssl/shooter2d-gs.oguzhaneroglu.com/fullchain.cer"
+const SSL_KEY_PATH = "KEY_PATH"
+const SSL_CER_PATH = "CER_PATH"
+const SSL_FULLCHAIN_PATH = "FULLCHAIN_PATH"
 
 var is_server = false
 
