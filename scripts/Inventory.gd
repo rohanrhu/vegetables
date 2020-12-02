@@ -27,11 +27,10 @@ func _ready():
 
 func set_slots(number):
     for i in range(number):
-        var slot: Button = nSlotProto.duplicate()
+        var slot: TouchScreenButton = nSlotProto.duplicate()
         slot.visible = true
         slot.set_name(str(i))
-        slot.margin_left += i * (slot.rect_size.x + margin)
-        slot.rect_size = nSlotProto.rect_size
+        slot.global_position.x += i * (slot.normal.get_size().x + margin)
 
         slot.get_node("AK47").visible = false
         slot.get_node("Glock").visible = false

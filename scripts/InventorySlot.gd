@@ -9,7 +9,7 @@
 # Licensed under GNU/GPLv3
 #
 
-extends Button
+extends TouchScreenButton
 
 onready var nPlayer = $"/root/Game/Player"
 onready var nAK47 = $AK47
@@ -22,6 +22,8 @@ var item = ScriptGlobals.ITEM.NONE
 var ammo = 0
 
 func _ready():
+    self.connect("pressed", self, "_on_pressed")
+
     nAK47.visible = false
     nGlock.visible = false
     nMedic.visible = false

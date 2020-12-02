@@ -31,6 +31,10 @@ func _ready():
         mobileLayout.visible = false
         return
 
+    if ScriptGlobals.is_android:
+        $CanvasLayer/FullscreenButton.visible = false
+        $CanvasLayer/FPSLabel.visible = false
+
     $Prototypes.visible = false
 
     Server.rpc_id(1, "sync_position")
