@@ -30,7 +30,6 @@ func set_slots(number):
         var slot: TouchScreenButton = nSlotProto.duplicate()
         slot.visible = true
         slot.set_name(str(i))
-        slot.global_position.x += i * (slot.normal.get_size().x + margin)
 
         slot.get_node("AK47").visible = false
         slot.get_node("Glock").visible = false
@@ -38,6 +37,8 @@ func set_slots(number):
         nSlots.add_child(slot)
 
         slots.append(slot)
+
+        slot.global_position.x += i * (slot.normal.get_size().x + margin)
 
     current = slots[0]
 

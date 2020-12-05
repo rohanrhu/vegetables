@@ -163,7 +163,7 @@ remote func sync_health(id, health):
     if id == get_tree().get_network_unique_id():
         player = get_node_or_null("/root/Game/Player")
     else:
-        player = get_node_or_null("/root/Game/Players" + str(id))
+        player = get_node_or_null("/root/Game/Players/" + str(id))
 
     if not player:
         return
@@ -195,7 +195,7 @@ remote func send_message(message, from):
     $"/root/Game".add_message(message, from)
 
 remote func set_android(id, is_android):
-    var player = get_node_or_null("/root/Game/Players" + str(id))
+    var player = get_node_or_null("/root/Game/Players/" + str(id))
 
     if not player:
         return

@@ -14,7 +14,7 @@ extends CanvasLayer
 var peer: NetworkedMultiplayerENet
 
 func _ready():
-    if not OS.is_debug_build():
+    if not OS.is_debug_build() and not ScriptGlobals.is_android:
         Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
     get_tree().connect("connected_to_server", self, "_on_server_connected")
