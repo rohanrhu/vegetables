@@ -7,7 +7,7 @@ Vegetables is a multiplayer deathmatch shooter game with cute vegetable characte
 This is my first game and I just wanted to make it open source. :) I will develop new games but of course still maybe some upgrades on this game as open source.
 
 ## Play Game
-You can play game here: [Click to play!](https://evrenselkisilik.itch.io/vegetables)
+You can install from [Google Play Store](https://play.google.com/store/apps/details?id=com.oguzhaneroglu.vegetables) or you can play game here on web: [Click to play!](https://evrenselkisilik.itch.io/vegetables)
 
 ## Features
 * Multiplayer Deathmatch
