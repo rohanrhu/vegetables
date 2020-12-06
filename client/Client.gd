@@ -55,6 +55,7 @@ func join_game():
             url = "ws://127.0.0.1:" + str(ScriptGlobals.SERVER_PORT)
         else:
             url = "ws://192.168.1.103:" + str(ScriptGlobals.SERVER_PORT)
+    url = "wss://"+ScriptGlobals.SERVER_ADDRESS + ":" + str(ScriptGlobals.SERVER_PORT)
 
     if peer.connect_to_url(url, PoolStringArray(), true) != OK:
         print("Client error.")
@@ -205,6 +206,11 @@ remote func set_android(id, is_android):
 remote func joined():
     $"/root/Game".set_android(ScriptGlobals.is_android)
 
+    Server.rpc_id(1, "sync_position")
+    Server.rpc_id(1, "sync_players")
+    Server.rpc_id(1, "sync_bloods")
+    Server.rpc_id(1, "sync_loot_boxes")
+
 remote func set_loot_boxes(boxes):
     for box in boxes:
         add_loot_box(box[0], box[1], box[2], box[3])
@@ -249,3 +255,8 @@ remote func set_ammo(item, ammo):
     if not player:
         player = $"/root/Game/Player"
     player.set_ammo(item, ammo)
+
+remote func open_game():
+    Server.rpc_id(1, "set_player_name", Client.player_info.name)
+    get_tree().change_scene("res://scenes/Game.tscn")
+    Server.rpc_id(1, "join_game")

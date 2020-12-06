@@ -85,15 +85,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+margin_left = -513.0
+margin_top = -298.0
+margin_right = 518.0
+margin_bottom = 308.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SS" type="TextureRect" parent="Panel"]
-margin_left = -577.0
-margin_top = -332.0
-margin_right = 610.0
-margin_bottom = 326.0
+margin_left = -61.629
+margin_top = -24.7539
+margin_right = 1125.37
+margin_bottom = 633.246
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource( 4 )
@@ -104,10 +108,10 @@ __meta__ = {
 }
 
 [node name="SSLayer" type="Panel" parent="Panel"]
-margin_left = -572.196
-margin_top = -356.264
-margin_right = 606.803
-margin_bottom = 330.737
+margin_left = -56.825
+margin_top = -49.0179
+margin_right = 1122.17
+margin_bottom = 637.983
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 589.499, 343.5 )
@@ -118,10 +122,10 @@ __meta__ = {
 }
 
 [node name="StatusLabel" type="Label" parent="Panel"]
-margin_left = -255.321
-margin_top = 188.414
-margin_right = 292.679
-margin_bottom = 223.414
+margin_left = 260.05
+margin_top = 495.66
+margin_right = 808.05
+margin_bottom = 530.66
 rect_pivot_offset = Vector2( 270.293, 5.99451 )
 custom_fonts/font = SubResource( 3 )
 align = 1
@@ -133,11 +137,11 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -207.384
-margin_top = -158.612
-margin_right = 216.616
-margin_bottom = -46.6121
-rect_pivot_offset = Vector2( 186.653, 64.143 )
+margin_left = -206.5
+margin_top = 150.0
+margin_right = 217.5
+margin_bottom = -341.0
+rect_pivot_offset = Vector2( -15.2407, -266.857 )
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Vegetables"
@@ -147,10 +151,10 @@ __meta__ = {
 }
 
 [node name="VersionLabel" type="Label" parent="Panel"]
-margin_left = -77.2291
-margin_top = -46.6121
-margin_right = 101.771
-margin_bottom = -0.612137
+margin_left = 438.142
+margin_top = 260.634
+margin_right = 617.142
+margin_bottom = 306.634
 rect_pivot_offset = Vector2( 186.653, 64.143 )
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -186,10 +190,10 @@ __meta__ = {
 }
 
 [node name="NameInput" type="LineEdit" parent="Panel"]
-margin_left = -142.785
-margin_top = 24.6263
-margin_right = 178.215
-margin_bottom = 89.6263
+margin_left = 372.753
+margin_top = 331.872
+margin_right = 693.753
+margin_bottom = 396.872
 rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 163.713, 34.2238 )
 custom_styles/read_only = SubResource( 6 )
@@ -211,10 +215,10 @@ __meta__ = {
 [node name="Mascot" type="Control" parent="Panel"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 52.1355
-margin_top = 87.4532
-margin_right = 52.1355
-margin_bottom = 87.4532
+margin_left = 53.1885
+margin_top = 396.287
+margin_right = 53.1885
+margin_bottom = 396.287
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -226,19 +230,19 @@ frames = SubResource( 15 )
 playing = true
 
 [node name="Links" type="Control" parent="Panel"]
-margin_left = -19.478
-margin_top = 253.281
-margin_right = -19.478
-margin_bottom = 253.281
+margin_left = 495.893
+margin_top = 560.527
+margin_right = 495.893
+margin_bottom = 560.527
 rect_pivot_offset = Vector2( 39.1136, 22.2053 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DiscordLink" type="LinkButton" parent="Panel/Links"]
-margin_top = 1.18921
+margin_top = -1.81079
 margin_right = 77.0
-margin_bottom = 36.1892
+margin_bottom = 33.1892
 rect_pivot_offset = Vector2( 38.5, 17.5 )
 custom_fonts/font = SubResource( 16 )
 text = "discord"

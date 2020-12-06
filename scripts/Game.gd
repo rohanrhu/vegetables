@@ -37,11 +37,6 @@ func _ready():
 
     $Prototypes.visible = false
 
-    Server.rpc_id(1, "sync_position")
-    Server.rpc_id(1, "sync_players")
-    Server.rpc_id(1, "sync_bloods")
-    Server.rpc_id(1, "sync_loot_boxes")
-
 func _process(delta):
     fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
 

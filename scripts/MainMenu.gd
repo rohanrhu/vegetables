@@ -13,6 +13,10 @@ extends CanvasLayer
 
 var peer: NetworkedMultiplayerENet
 
+var name_input_y = 0
+
+var is_connecting = false
+
 func _ready():
     if not OS.is_debug_build() and not ScriptGlobals.is_android:
         Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
@@ -22,22 +26,44 @@ func _ready():
 
     $Panel/VersionLabel.text = ScriptGlobals.VERSION_STRING
 
+    name_input_y = $Panel/NameInput.rect_position.y
+
+func _process(delta: float):
+    if OS.get_virtual_keyboard_height() > 0:
+        $Panel/NameInput.rect_position.y = 150
+    else:
+        $Panel/NameInput.rect_position.y = name_input_y
+
 func _on_StartButton_pressed():
-    $Panel/StatusLabel.text = "connecting to game.."
+    if is_connecting == true:
+        return
+
+    is_connecting = true
+
+    $Panel/StatusLabel.text = "Connecting to game.."
+
+    var name = $Panel/NameInput.text.strip_edges(true, true)
+
+    Client.player_info = {
+        id = 0,
+        name = name
+    }
+
     Client.join_game()
 
 func _on_server_connected():
-    Client.player_info = {
-        id = get_tree().get_network_unique_id(),
-        name = $Panel/NameInput.text
-    }
+    $Panel/StatusLabel.text = "Connected! Loading..."
 
-    Server.rpc_id(1, "set_player_name", $Panel/NameInput.text)
-    get_tree().change_scene("res://scenes/Game.tscn")
-    Server.rpc_id(1, "join_game")
+    var name = $Panel/NameInput.text.strip_edges(true, true)
+
+    if name == "":
+        name = "Player"
+
+    Client.player_info["id"] = get_tree().get_network_unique_id()
 
 func _on_server_failed():
-    pass
+    $Panel/StatusLabel.text = "Connection failed!"
+    is_connecting = false
 
 func _on_IOGamesLink_pressed():
     OS.shell_open("https://iogames.space")

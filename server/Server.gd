@@ -79,11 +79,14 @@ func serve():
     get_tree().change_scene("res://scenes/Game.tscn")
 
 func _on_player_connected(id):
+    if not ScriptGlobals.is_server:
+        return
+
     print("[Server] Player connected: #"+str(id))
 
     character_i += 1
 
-    if character_i == ScriptGlobals.CHARACTER.size()-1:
+    if character_i == ScriptGlobals.CHARACTER.size():
         character_i = 0
 
     players[id] = {
@@ -93,7 +96,12 @@ func _on_player_connected(id):
         kills = 0
     }
 
+    Client.rpc_id(id, "open_game")
+
 func _on_player_disconnected(id):
+    if not ScriptGlobals.is_server:
+        return
+
     print("[Server] Player disconnected: #"+str(id))
     if players.has(id):
         if players[id].has("player") and players[id]["player"]:
@@ -118,6 +126,7 @@ remote func join_game():
         character = players[get_tree().get_rpc_sender_id()]["character"],
         item = ScriptGlobals.ITEM.NONE
     }
+    print("PLAYER: ", player, " - ", get_tree().get_rpc_sender_id());
     players[get_tree().get_rpc_sender_id()]["player"] = player
     player.global_position = Vector2(player.global_position.x+50, player.global_position.y+50)
 
